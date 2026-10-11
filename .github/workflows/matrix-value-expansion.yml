@@ -1,0 +1,11 @@
+name: matrix-value-expansion
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        config:
+          - { name: project_one }
+    steps:
+      - run: echo "[${{ matrix.config }}]"
