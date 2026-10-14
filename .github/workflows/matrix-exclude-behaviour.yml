@@ -12,3 +12,17 @@ jobs:
           - { os: linux, version: '3' }
     steps:
       - run: echo ${{ matrix.os }}-${{ matrix.version }}
+
+  object_exclude:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        config:
+          - { name: a, lang: js }
+          - { name: b, lang: ts }
+          - { name: c, lang: py }
+        exclude:
+          - config: { name: a, lang: js }
+          - config: { name: b }
+    steps:
+      - run: echo ${{ matrix.config.name }}kk
