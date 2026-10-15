@@ -1,0 +1,12 @@
+on: workflow_dispatch
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        name: [world]
+    steps:
+      - run: |
+          echo "index syntax: hello ${{ matrix['name'] }}"
+          echo "format(): ${{ format('hello {0}', matrix.name) }}"
+          echo "operators: ${{ matrix.name == 'world' && 'hello world' || 'comparison failed' }}"
