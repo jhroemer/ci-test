@@ -1,0 +1,13 @@
+on: workflow_dispatch
+name: matrix include behaviour
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        fruit: [apple]
+        include:
+          - fruit: banana
+          - color: green
+    steps:
+      - run: echo "fruit=${{ matrix.fruit }} color=${{ matrix.color }}"
