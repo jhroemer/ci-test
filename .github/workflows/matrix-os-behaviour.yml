@@ -1,0 +1,10 @@
+name: matrix-os-check
+on: workflow_dispatch
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [macos-latest]
+    steps:
+      - run: echo "matrix.os=${{ matrix.os }} runner=$RUNNER_OS"
